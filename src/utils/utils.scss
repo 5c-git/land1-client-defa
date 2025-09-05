@@ -24,6 +24,7 @@ $Secondary-13: rgba($color: #8ecade, $alpha: 20%);
 $Secondary-14: #223362;
 $Secondary-15: #ecf1f8;
 $Secondary-16: rgba($color: #3b73b8, $alpha: 30%);
+$Secondary-17: #f9f8f8;
 
 $desktop: 1300px;
 $tablet: 991px;
@@ -76,15 +77,18 @@ $article-width: 800px;
 }
 
 @mixin Shadow-L {
-  box-shadow: 0 0 30px 0 rgba(60, 60, 60, 0.26);
+  // box-shadow: 0 0 30px 0 rgba(60, 60, 60, 0.26);
+  filter: drop-shadow(0 0 30px rgba(60, 60, 60, 0.26));
 }
 
 @mixin Shadow-XS {
-  box-shadow: 0 0 25px rgba(60, 60, 60, 0.18);
+  // box-shadow: 0 0 25px rgba(60, 60, 60, 0.18);
+  filter: drop-shadow(0 0 25px rgba(60, 60, 60, 0.18));
 }
 
 @mixin Shadow-cards {
-  box-shadow: 0 0 12px rgba(60, 60, 60, 0.18);
+  // box-shadow: 0 0 12px rgba(60, 60, 60, 0.18);
+  filter: drop-shadow(0 0 12px rgba(60, 60, 60, 0.18));
 }
 
 @mixin link {
@@ -392,5 +396,29 @@ $article-width: 800px;
 
   @media(max-width: $phone) {
     @include MobileBody1-regular;
+  }
+}
+
+@mixin DesktopSubtitle4-regular {
+  font-family: $main-font;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+
+  @media(max-width: $phone) {
+    @include MobileBody1-regular;
+  }
+}
+
+@mixin DesktopSubtitle4-bold {
+  font-family: $main-font;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+
+  @media(max-width: $phone) {
+    @include MobileH3-bold;
   }
 }

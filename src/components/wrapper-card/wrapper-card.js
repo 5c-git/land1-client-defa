@@ -1,0 +1,1 @@
+import './wrapper-card.scss';

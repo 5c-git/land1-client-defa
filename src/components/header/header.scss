@@ -2,4 +2,85 @@
   @media print {
     display: none;
   }
+
+  &__fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: transparent;
+    transition:
+      transform 0.2s,
+      background-color 0.2s;
+    will-change: transform;
+
+    @media(max-width: $phone) {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &__logo {
+    width: 143px;
+    flex-shrink: 0;
+
+    @media(max-width: $phone) {
+      width: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__contact {
+
+    &--desktop-only {
+      @media(max-width: $phone) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    @include MobileH3-bold;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        color: $Primary-5;
+      }
+    }
+
+    &:active {
+      color: $Secondary-8;
+    }
+  }
+
+  &--fixed {
+
+    .header__fixed {
+      @include Shadow-XS;
+      background-color: $Primary-1;
+    }
+  }
 }

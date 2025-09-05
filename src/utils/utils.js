@@ -1,5 +1,11 @@
 import "./main.scss";
 import "./fonts.scss";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { SplitText } from "gsap/SplitText";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
 import {
   summonAlert,
   removeAlert,
@@ -292,6 +298,33 @@ const blurHandler = (event) => {
 };
 document.addEventListener('blur', blurHandler, true);
 
+
+// Анимация появления карточек.
+const initScrollRevealChain = (selector) => {
+  const elements = document.querySelectorAll(selector);
+
+  elements.forEach((el, index) => {
+    const base = Math.floor(Math.random() * 10) * 50;
+    const direction = Math.random() < 0.5 ? -1 : 1;
+    const randomY = base * direction;
+
+    gsap.from(el, {
+      y: randomY,
+      x: 0,
+      z: 0,
+      opacity: 0,
+      duration: 1,
+      delay: index * 0.2, // нарастающая задержка
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top bottom",
+        // toggleActions: "play none none reverse",
+      }
+    });
+  });
+}
+
 export {
   getPaddingOnBody,
   getPaddingFromBody,
@@ -310,4 +343,5 @@ export {
   debounce,
   scrollToErrorField,
   updateButtonState,
+  initScrollRevealChain,
 };

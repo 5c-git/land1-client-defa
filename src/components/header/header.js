@@ -37,36 +37,3 @@ if (header) {
     }
   });
 }
-
-// Логика для каталога в шапке.
-document.querySelectorAll('.header__catalog').forEach((catalog) => {
-  const toggle = catalog.querySelector('.header__catalog-toggle');
-
-  if (!toggle) return;
-
-  const onEscPress = (evt) => {
-    if (evt.code === 'Escape') {
-      evt.preventDefault();
-      toggle.classList.remove('header__catalog-toggle--active');
-      document.removeEventListener('keydown', onEscPress);
-    }
-  };
-
-  document.addEventListener('click', (evt) => {
-    const isToggleClick = evt.target === toggle;
-
-    if (isToggleClick) {
-      toggle.classList.toggle('header__catalog-toggle--active');
-
-      if (toggle.classList.contains('header__catalog-toggle--active')) {
-        document.addEventListener('keydown', onEscPress);
-      } else {
-        document.removeEventListener('keydown', onEscPress);
-      }
-    } else if (!catalog.contains(evt.target)) {
-      // Клик вне конкретного каталога — закрываем его
-      toggle.classList.remove('header__catalog-toggle--active');
-      document.removeEventListener('keydown', onEscPress);
-    }
-  });
-});

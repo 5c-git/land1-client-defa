@@ -1,0 +1,45 @@
+.advantages-card {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-right: 26px;
+  padding-bottom: 24px;
+  padding-left: 26px;
+  background-color: $Secondary-17;
+  border-radius: 20px;
+  overflow: hidden;
+  gap: 30px;
+
+  @media(max-width: $tablet) {
+    @include Shadow-cards;
+  }
+
+  @media(max-width: $phone) {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    gap: 20px;
+  }
+
+  &__banner {
+    height: 100px;
+    margin: 0;
+
+    @media(max-width: $phone) {
+      height: 60px;
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+      display: block;
+    }
+  }
+
+  &__title {
+    @include DesktopSubtitle4-bold;
+    margin: 0;
+  }
+}
