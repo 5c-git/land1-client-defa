@@ -1,0 +1,50 @@
+.layout {
+  margin-top: 70px;
+  margin-bottom: 70px;
+
+  @media(max-width: $phone) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    column-gap: 20px;
+  }
+
+  &__title {
+    @include DesktopH2-bold;
+    margin: 0;
+
+    @media(max-width: $phone) {
+      @include MobileH3-bold;
+    }
+  }
+
+  &__more {
+    @include DesktopBody1-regular;
+    text-decoration: none;
+    color: $Primary-3;
+    transition:
+      color 0.3s,
+      opacity 0.3s;
+
+    @media(max-width: $phone) {
+      @include MobileBody2-regular;
+    }
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        opacity: 0.8;
+      }
+    }
+
+    &:active {
+      color: $Primary-2;
+      opacity: 1;
+    }
+  }
+}
