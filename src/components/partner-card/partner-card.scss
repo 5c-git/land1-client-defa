@@ -5,6 +5,11 @@
   justify-content: center;
   align-items: center;
 
+  @media(max-width: $phone) {
+    width: 150px;
+    height: 75px;
+  }
+
   &__banner {
     max-width: 100%;
     max-height: 100%;

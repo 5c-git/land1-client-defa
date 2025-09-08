@@ -34,7 +34,7 @@ html {
 }
 
 body {
-  @include DesktopBody1-regular;
+  @include DesktopSubtitle1-regular;
   display: flex;
   min-width: 320px;
   min-height: calc(var(--vh, 1vh) * 100);
@@ -55,7 +55,7 @@ body {
 main {
   flex-grow: 1;
 
-  & > section:last-child {
+  &>section:last-child {
     margin-bottom: 0;
     padding-bottom: 70px;
     flex-grow: 1;
@@ -63,6 +63,7 @@ main {
     @media(max-width: $tablet) {
       padding-bottom: 70px;
     }
+
     @media(max-width: $phone) {
       padding-bottom: 40px;
     }
@@ -71,6 +72,15 @@ main {
 
 a {
   text-underline-position: under;
+}
+
+b:not([class]) {
+  font-weight: 500;
+}
+
+svg {
+  pointer-events: none;
+  user-select: none;
 }
 
 textarea {
@@ -103,9 +113,9 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
@@ -147,14 +157,14 @@ summary::-webkit-details-marker {
     @include DesktopBody1-regular;
   }
 
-  .viewer-toolbar > ul > .viewer-large {
+  .viewer-toolbar>ul>.viewer-large {
     width: 40px;
     height: 40px;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  .viewer-toolbar > ul > .viewer-large:before {
+  .viewer-toolbar>ul>.viewer-large:before {
     margin: 10px;
   }
 }

@@ -8,6 +8,7 @@
   }
 
   &__content {
+    position: relative;
     width: 100%;
     max-width: 500px;
     min-height: 480px;
@@ -31,6 +32,26 @@
       padding-bottom: 20px;
       padding-left: 15px;
       gap: 20px;
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      bottom: 0;
+      width: 150px;
+      background-color: $Secondary-15;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      content: '';
+
+      @media(max-width: $tablet) {
+        width: 100px;
+      }
+
+      @media(max-width: $phone) {
+        display: none;
+        content: unset;
+      }
     }
   }
 

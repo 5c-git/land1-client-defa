@@ -6,8 +6,6 @@ mixin layout(props)
   section(class=`layout${extraClass}`)
     div.container
       if props.title
-        div.layout__header
-          h2.layout__title!=props.title
-          span.layout__sub-title!=props.subtitle
+        h2.layout__title!=props.title
       div.layout__wrapper
         block

@@ -5,12 +5,11 @@
     margin-top: 30px;
   }
 
-  &__header {
+  &__title {
+    @include DesktopH1-bold;
     width: 100%;
     max-width: 940px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 0;
     margin-right: auto;
     margin-bottom: 60px;
     margin-left: auto;
@@ -31,11 +30,6 @@
         display: inline-block;
       }
     }
-  }
-
-  &__title {
-    @include DesktopH1-bold;
-    margin: 0;
   }
 
   &__sub-title {

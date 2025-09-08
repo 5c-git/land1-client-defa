@@ -1,0 +1,67 @@
+.yandex-badge {
+  display: flex;
+  flex-direction: column;
+  padding-top: 14px;
+  padding-right: 50px;
+  padding-bottom: 14px;
+  padding-left: 50px;
+  background-color: $Primary-1;
+  border-radius: 10px;
+  flex-shrink: 0;
+  gap: 10px;
+
+  @media(max-width: $phone) {
+    flex-direction: row;
+    padding-right: 15px;
+    padding-left: 15px;
+    gap: 20px;
+  }
+
+  &__logo {
+    width: 129px;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__score {
+    @include DesktopH1-bold;
+    margin: 0;
+  }
+
+  &__link {
+    @include MobileBody1-regular;
+    text-decoration: none;
+    color: $Primary-3;
+    transition:
+      opacity 0.3s,
+      color 0.3s;
+    column-gap: 6px;
+
+    &:hover {
+      @media(min-width: $desktop-only) {
+        opacity: 0.8;
+      }
+    }
+
+    &:active {
+      color: $Primary-2;
+      opacity: 1;
+    }
+  }
+
+  &__reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

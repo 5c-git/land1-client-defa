@@ -1,0 +1,109 @@
+.reviews {
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 40px;
+
+    @media(max-width: $phone) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+  }
+
+  &__title {
+    @include DesktopH1-bold;
+    width: 100%;
+    max-width: 940px;
+    margin: 0;
+    gap: 40px;
+
+    @media(max-width: $phone) {
+      gap: 20px;
+    }
+
+    em {
+      display: inline-block;
+      font-style: normal;
+      color: $Primary-3;
+
+      span {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__slider {
+
+    &+.reviews__main {
+      margin-top: 100px;
+
+      @media(max-width: $phone) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  &__main {
+    position: relative;
+    min-height: 400px;
+    padding-bottom: 80px;
+    background-size: auto 400px;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+
+    @media(max-width: $tablet) {
+      padding-bottom: 30px;
+      background-size: auto 200px;
+    }
+
+    @media(max-width: $phone) {
+      padding-bottom: 30px;
+      background-size: auto 150px;
+    }
+  }
+
+  &__content {
+    width: calc(100% - 400px);
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media(max-width: $tablet) {
+      width: calc(100% - 200px);
+    }
+
+    @media(max-width: $phone) {
+      width: unset;
+      gap: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    gap: 10px;
+
+    @media(max-width: $phone) {
+      margin-top: 30px;
+    }
+  }
+
+  &__name {
+    margin: 0;
+  }
+
+  &__position {
+    margin: 0;
+    color: $Secondary-5;
+  }
+}

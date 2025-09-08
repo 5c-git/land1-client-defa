@@ -1,0 +1,21 @@
+div.reviews
+  div.reviews__header
+    h2.reviews__title #[em.wave-text #[span(style='font-size: 150%;') 89%] покупателей] #[br] возвращаются к нам снова
+
+    include ../yandex-badge/yandex-badge
+    
+  div.reviews__slider
+    +slider({
+      reviews: true,
+    })
+
+  
+  div(style='background-image: url("./assets/images/review-quote-image-1.png")').reviews__main
+    div.reviews__content
+      h2.reviews__title.reviews__title--quote Ассортимент, подобранный экспертами рынка
+
+      p.reviews__text Замечательная продукция и компания. Все четко отгрузили, быстро. Очень хороший, простой, понятный сайт продаж. Буду еще у них покупать продукцию. #[br] Замечательная продукция и компания. Все четко отгрузили, быстро.
+
+      div.reviews__about
+        span.reviews__name #[b Константинопольская #[br] Василиса]
+        span.reviews__position ИП “Клевое место”
