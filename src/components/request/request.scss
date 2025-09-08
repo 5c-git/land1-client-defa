@@ -36,9 +36,9 @@
 
     &:after {
       position: absolute;
-      top: 0;
-      left: 100%;
-      bottom: 0;
+      top: -1px;
+      left: calc(100% - 1px);
+      bottom: -1px;
       width: 150px;
       background-color: $Secondary-15;
       clip-path: polygon(0 0, 100% 0, 0 100%);

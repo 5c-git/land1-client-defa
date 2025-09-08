@@ -746,21 +746,19 @@ summary::-webkit-details-marker {
 .article blockquote:last-child, .article h2:last-child, .article h3:last-child, .article h4:last-child, .article h5:last-child, .article h6:last-child, .article p:last-child, .article ul:last-child, .article ol:last-child, .article a:last-child, .article details:last-child {
   margin-bottom: 0;
 }
-.article blockquote {
+.article > blockquote {
   margin-top: 40px;
   margin-right: auto;
   margin-bottom: 40px;
   margin-left: auto;
 }
 @media (max-width: 767px) {
-  .article blockquote {
+  .article > blockquote {
     margin-top: 30px;
     margin-bottom: 30px;
   }
 }
-.article h2:not([class]),
-.article h3:not([class]),
-.article h4:not([class]) {
+.article > h2, .article > h3, .article > h4 {
   width: 100%;
   max-width: 940px;
   margin-top: 60px;
@@ -770,24 +768,14 @@ summary::-webkit-details-marker {
   text-align: center;
 }
 @media (max-width: 767px) {
-  .article h2:not([class]),
-  .article h3:not([class]),
-  .article h4:not([class]) {
+  .article > h2, .article > h3, .article > h4 {
     margin-top: 40px;
     margin-bottom: 30px;
   }
 }
-.article h2:not([class]) em,
-.article h3:not([class]) em,
-.article h4:not([class]) em {
-  display: inline-block;
+.article > h2 em, .article > h3 em, .article > h4 em {
   font-style: normal;
   color: #3b73b8;
-}
-.article h2:not([class]) em span,
-.article h3:not([class]) em span,
-.article h4:not([class]) em span {
-  display: inline-block;
 }
 .article h2:not([class]) {
   font-family: "Roboto";
@@ -1718,12 +1706,8 @@ summary::-webkit-details-marker {
   }
 }
 .intro__title em {
-  display: inline-block;
   font-style: normal;
   color: #3b73b8;
-}
-.intro__title em span {
-  display: inline-block;
 }
 .intro__sub-title {
   font-family: "Roboto";
@@ -1911,12 +1895,8 @@ summary::-webkit-details-marker {
   }
 }
 .layout__title em {
-  display: inline-block;
   font-style: normal;
   color: #3b73b8;
-}
-.layout__title em span {
-  display: inline-block;
 }
 .layout__sub-title {
   font-family: "Roboto";
@@ -2018,9 +1998,9 @@ summary::-webkit-details-marker {
 }
 .request__content:after {
   position: absolute;
-  top: 0;
-  left: 100%;
-  bottom: 0;
+  top: -1px;
+  left: calc(100% - 1px);
+  bottom: -1px;
   width: 150px;
   background-color: #ecf1f8;
   clip-path: polygon(0 0, 100% 0, 0 100%);
@@ -2203,12 +2183,8 @@ summary::-webkit-details-marker {
   }
 }
 .reviews__title em {
-  display: inline-block;
   font-style: normal;
   color: #3b73b8;
-}
-.reviews__title em span {
-  display: inline-block;
 }
 .reviews__slider + .reviews__main {
   margin-top: 100px;
