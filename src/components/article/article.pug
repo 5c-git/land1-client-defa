@@ -1,0 +1,55 @@
+mixin article(props)
+  include ../slider/slider
+
+  if props.one
+    div.article
+      h2 Широкий #[em.wave-text ассортимент и технологичность] делают платформу Defa удобным инструментом для того, кто занимается закупками
+
+      div.article__list
+        include ../wrapper-card/wrapper-card
+
+      h2 ... а еще
+
+      div.article__list.article__list--column-3
+        include ../advantages-card/advantages-card
+
+
+  else if props.two
+    div.article
+      h2 B2B-магазин, где действительно #[em.wave-text выгодно быть постоянным]: программа лояльности и кешбэк за каждый заказ
+
+      p Действующая программа лояльности для B2B-клиентов позволяет зарабатывать кешбэк с каждого заказа, которыми можно оплачивать до 20% последующих заказов. Так же даем возможность регулировать отпускные цены в зависимости от активности и объема сотрудничества. А еще есть приветственные бонусы и постоянные акции.
+
+      img(src="./assets/images/article-image-1.png", alt="")
+
+      h2 Заголовок блока про прайс-лист
+
+      p Прайс с актуальными и индивидуальными #[br]ценами доступен после регистрации
+
+      p 
+        span.button-magnetic
+          a(href='#').button.button--big Изучить прайс-лист
+
+      img(src="./assets/images/article-image-2.png", alt="")
+
+      
+  else if props.three
+    div.article
+      h2 #[em.wave-text #[span(style='font-size: 150%;') 30+] партнеров] выбирают #[br] платформу Дефа
+
+      +slider({
+        partners: true,
+      })
+
+      h2 А вы готовы зарегистрироваться на платформе, которой доверяют #[em.wave-text >12 000 клиентов]?
+
+      p Планируйте и совершайте закупки онлайн #[br] 24\7 с удобной персональной поддержкой
+
+      p 
+        span.button-magnetic
+          a(href='#').button.button--big Зарегистрироватсья
+
+      br
+      br
+
+      include ../request/request

@@ -5,8 +5,27 @@ block main
   include ../components/intro/intro
 
   +layout({})
-    include ../components/advantages/advantages
+    +article({
+      one: true,
+    })
+
+  +layout({
+    class: 'layout--sky',
+    title: 'Совершайте <em class="wave-text">закупки в несколько кликов</em>: быстрые заказы без договоров и согласований',
+  })
+    include ../components/route/route
 
   +layout({})
+    +article({
+      two: true,
+    })
+
+  +layout({
+    class: 'layout--grey',
+  })
 
   +layout({})
+    +article({
+      three: true,
+    })
+

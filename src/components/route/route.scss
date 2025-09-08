@@ -1,0 +1,84 @@
+.route {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    '. third .'
+    'second banner fourth'
+    'first banner fifth';
+  counter-reset: lvl1;
+  gap: 30px;
+
+  @media(max-width: $tablet) {
+    grid-template-areas: unset;
+    grid-template-columns: 1fr;
+  }
+
+  &__step {
+    counter-increment: lvl1;
+
+    &--first {
+      @media(min-width: $desktop-only) {
+        grid-area: first;
+      }
+    }
+
+    &--second {
+      @media(min-width: $desktop-only) {
+        grid-area: second;
+      }
+    }
+
+    &--third {
+      @media(min-width: $desktop-only) {
+        grid-area: third;
+      }
+    }
+
+    &--fourth {
+      @media(min-width: $desktop-only) {
+        grid-area: fourth;
+      }
+    }
+
+    &--fifth {
+      @media(min-width: $desktop-only) {
+        grid-area: fifth;
+      }
+    }
+  }
+
+  &__banner {
+    margin: 0;
+
+    @media(min-width: $desktop-only) {
+      grid-area: banner;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: bottom;
+    }
+  }
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__step-title {
+    @include DesktopSubtitle4-bold;
+    margin: 0;
+
+    &:before {
+      content: counter(lvl1) '. ';
+    }
+  }
+}

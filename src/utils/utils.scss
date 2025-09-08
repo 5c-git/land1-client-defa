@@ -31,7 +31,7 @@ $tablet: 991px;
 $desktop-only: $tablet + 1;
 $phone: 767px;
 
-$article-width: 800px;
+$article-width: 940px;
 
 @mixin scroll {
   overflow: auto;
@@ -401,10 +401,10 @@ $article-width: 800px;
 
 @mixin DesktopSubtitle4-regular {
   font-family: $main-font;
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 30px;
 
   @media(max-width: $phone) {
     @include MobileBody1-regular;
@@ -413,10 +413,10 @@ $article-width: 800px;
 
 @mixin DesktopSubtitle4-bold {
   font-family: $main-font;
-  font-size: 24px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
-  line-height: 32px;
+  line-height: 30px;
 
   @media(max-width: $phone) {
     @include MobileH3-bold;
