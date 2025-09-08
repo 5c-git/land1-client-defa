@@ -2,6 +2,10 @@
   color: $Secondary-6;
   background-color: $Secondary-3;
 
+  @media(max-width: $phone) {
+    text-align: center;
+  }
+
   @media print {
     display: none;
   }
@@ -23,6 +27,7 @@
 
     @media(max-width: $phone) {
       flex-direction: column;
+      align-items: center;
       padding-bottom: 20px;
     }
   }
@@ -68,6 +73,7 @@
 
     @media(max-width: $phone) {
       flex-direction: column;
+      align-items: center;
     }
   }
 

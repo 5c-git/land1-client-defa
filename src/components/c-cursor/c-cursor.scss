@@ -37,4 +37,8 @@
 
 .button-magnetic {
   display: inline-block;
+
+  @media(max-width: $phone) {
+    width: 100%;
+  }
 }

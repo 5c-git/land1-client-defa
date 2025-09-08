@@ -628,59 +628,104 @@ importAll(__webpack_require__(147));
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   magneticInit: () => (/* binding */ magneticInit)
+/* harmony export */ });
 /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5880);
 
 
 const magneticInit = () => {
+  const MIN_WIDTH = 1024;
+  let mouseMoveHandler = null;
+  let mouseOverHandler = null;
+  let mouseOutHandler = null;
+  const btnHandlers = /* @__PURE__ */ new Map();
   const cursor = document.querySelector(".c-cursor__pointer");
   const page = document.body;
+  if (!cursor)
+    return;
   gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.set(cursor, { autoAlpha: 1 });
   const cursorX = gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.quickTo(cursor, "x", { duration: 0.3 });
   const cursorY = gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.quickTo(cursor, "y", { duration: 0.3 });
-  function moveMousePos(e) {
+  const moveMousePos = (e) => {
     if (e.target.classList.contains("button-magnetic"))
       return;
     cursorX(e.clientX);
     cursorY(e.clientY);
-  }
-  function updateOnHover(e) {
+  };
+  const updateOnHover = (e) => {
     const { tagName, classList, parentElement } = e.target;
     if (tagName === "LABEL" || tagName === "A" || tagName === "BUTTON" || classList.contains("is-cursor-hover") || (parentElement == null ? void 0 : parentElement.tagName) === "A" && tagName === "IMG") {
       document.documentElement.classList.toggle("is-hover");
     }
-  }
-  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  if (!isTouchDevice) {
-    page.addEventListener("mousemove", moveMousePos);
-    page.addEventListener("mouseover", updateOnHover);
-    page.addEventListener("mouseout", updateOnHover);
-  }
-  const magneticButtons = [...document.querySelectorAll(".button-magnetic")];
-  magneticButtons.forEach((btn) => {
-    btn.addEventListener("mousemove", (e) => {
-      const rect = btn.getBoundingClientRect();
-      const relX = e.clientX - rect.left;
-      const relY = e.clientY - rect.top;
-      const cursorTargetX = rect.left + rect.width / 2 + (relX - rect.width / 2) / 1.5;
-      const cursorTargetY = rect.top + rect.height / 2 + (relY - rect.height / 2) / 1.5;
-      cursorX(cursorTargetX);
-      cursorY(cursorTargetY);
-      gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.to(btn, {
-        x: (relX - rect.width / 2) / rect.width * 50,
-        y: (relY - rect.height / 2) / rect.height * 50,
-        duration: 0.3,
-        ease: "power2.out"
-      });
+  };
+  const attach = () => {
+    mouseMoveHandler = moveMousePos;
+    mouseOverHandler = updateOnHover;
+    mouseOutHandler = updateOnHover;
+    page.addEventListener("mousemove", mouseMoveHandler);
+    page.addEventListener("mouseover", mouseOverHandler);
+    page.addEventListener("mouseout", mouseOutHandler);
+    const magneticButtons = [...document.querySelectorAll(".button-magnetic")];
+    magneticButtons.forEach((btn) => {
+      const onMove = (e) => {
+        const rect = btn.getBoundingClientRect();
+        const relX = e.clientX - rect.left;
+        const relY = e.clientY - rect.top;
+        const cursorTargetX = rect.left + rect.width / 2 + (relX - rect.width / 2) / 1.5;
+        const cursorTargetY = rect.top + rect.height / 2 + (relY - rect.height / 2) / 1.5;
+        cursorX(cursorTargetX);
+        cursorY(cursorTargetY);
+        gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.to(btn, {
+          x: (relX - rect.width / 2) / rect.width * 50,
+          y: (relY - rect.height / 2) / rect.height * 50,
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      };
+      const onOut = () => {
+        gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: "elastic.out(1, 0.4)"
+        });
+      };
+      btn.addEventListener("mousemove", onMove);
+      btn.addEventListener("mouseout", onOut);
+      btnHandlers.set(btn, { onMove, onOut });
     });
-    btn.addEventListener("mouseout", () => {
-      gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.to(btn, {
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: "elastic.out(1, 0.4)"
-      });
+  };
+  const detach = () => {
+    if (mouseMoveHandler)
+      page.removeEventListener("mousemove", mouseMoveHandler);
+    if (mouseOverHandler)
+      page.removeEventListener("mouseover", mouseOverHandler);
+    if (mouseOutHandler)
+      page.removeEventListener("mouseout", mouseOutHandler);
+    mouseMoveHandler = mouseOverHandler = mouseOutHandler = null;
+    btnHandlers.forEach(({ onMove, onOut }, btn) => {
+      btn.removeEventListener("mousemove", onMove);
+      btn.removeEventListener("mouseout", onOut);
     });
-  });
+    btnHandlers.clear();
+    document.querySelectorAll(".button-magnetic").forEach(
+      (btn) => gsap__WEBPACK_IMPORTED_MODULE_0__/* .gsap */ .os.set(btn, { x: 0, y: 0 })
+    );
+  };
+  const initOrDestroyMagnetic = () => {
+    if (window.innerWidth >= MIN_WIDTH) {
+      if (btnHandlers.size === 0) {
+        attach();
+      }
+    } else {
+      if (btnHandlers.size > 0) {
+        detach();
+      }
+    }
+  };
+  initOrDestroyMagnetic();
+  window.addEventListener("resize", initOrDestroyMagnetic);
 };
 magneticInit();
 

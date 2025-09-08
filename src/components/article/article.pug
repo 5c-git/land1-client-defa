@@ -24,7 +24,9 @@ mixin article(props)
 
       p Получайте до 1,5% с каждого заказа кешбэком и оплачивайте им до 20% от суммы последующих. #[br] Влияйте на отпускные цены, которые зависят объема закупок за квартал. #[br] А еще приветственные бонусы и постоянные акции. 
 
-      img(src="./assets/images/article-image-1.png", alt="")
+      picture
+        source(media="(max-width: 991px)" srcset="./assets/images/article-image-1--mobile.png")
+        img(src="./assets/images/article-image-1.png", alt="")
 
 
   else if props.four
@@ -37,7 +39,9 @@ mixin article(props)
         span.button-magnetic
           a(href='#').button.button--big Изучить прайс-лист
 
-      img(src="./assets/images/article-image-2.png", alt="")
+      picture
+        source(media="(max-width: 991px)" srcset="./assets/images/article-image-2--mobile.png")
+        img(src="./assets/images/article-image-2.png", alt="")
 
       
   else if props.five

@@ -10,17 +10,12 @@
   overflow: hidden;
   gap: 30px;
 
-  @media(max-width: $tablet) {
-    @include Shadow-cards;
-  }
-
   @media(max-width: $phone) {
     padding-top: 15px;
     padding-left: 15px;
     padding-bottom: 15px;
     padding-right: 15px;
     border-radius: 10px;
-    gap: 20px;
   }
 
   &__banner {
@@ -28,7 +23,7 @@
     margin: 0;
 
     @media(max-width: $phone) {
-      height: 60px;
+      height: 80px;
     }
 
     img {

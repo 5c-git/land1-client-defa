@@ -12,6 +12,7 @@
 
   @media(max-width: $phone) {
     flex-direction: row;
+    justify-content: space-between;
     padding-right: 15px;
     padding-left: 15px;
     gap: 20px;

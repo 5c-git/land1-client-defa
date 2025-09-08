@@ -29,7 +29,7 @@
     margin-bottom: 0;
   }
 
-  & > blockquote {
+  &>blockquote {
     margin-top: 40px;
     margin-right: auto;
     margin-bottom: 40px;
@@ -41,9 +41,9 @@
     }
   }
 
-  & > h2,
-  & > h3,
-  & > h4 {
+  &>h2,
+  &>h3,
+  &>h4 {
     width: 100%;
     max-width: $article-width;
     margin-top: 60px;
@@ -54,7 +54,7 @@
 
     @media(max-width: $phone) {
       margin-top: 40px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     em {
@@ -75,7 +75,8 @@
     @include DesktopH4-bold;
   }
 
-  figure:not([class]) {
+  figure:not([class]),
+  picture:not([class]) {
     margin-top: 40px;
     margin-right: auto;
     margin-bottom: 40px;
@@ -99,6 +100,8 @@
       display: block;
       max-width: 100%;
       height: auto;
+      margin-right: auto;
+      margin-left: auto;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -405,10 +408,6 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
-
-    @media(max-width: $phone) {
-      gap: 20px;
-    }
 
     &--column-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));

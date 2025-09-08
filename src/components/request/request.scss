@@ -58,6 +58,10 @@
   &__title {
     @include DesktopH2-bold;
     margin: 0;
+
+    @media(max-width: $phone) {
+      text-align: center;
+    }
   }
 
   &__form {
