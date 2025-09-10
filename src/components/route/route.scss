@@ -78,7 +78,9 @@
     margin: 0;
 
     &:before {
-      content: counter(lvl1) '. ';
+      @media(max-width: $tablet) {
+        content: counter(lvl1) '. ';
+      }
     }
   }
 }

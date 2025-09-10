@@ -45,11 +45,6 @@ body {
   background-color: #ffffff;
   box-sizing: border-box;
   font-feature-settings: 'tnum' on, 'lnum' on;
-
-  @media(max-width: $phone) {
-    font-size: 14px;
-    line-height: 20px;
-  }
 }
 
 main {

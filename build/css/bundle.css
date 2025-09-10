@@ -59,12 +59,6 @@ body {
     line-height: 18px;
   }
 }
-@media (max-width: 767px) {
-  body {
-    font-size: 14px;
-    line-height: 20px;
-  }
-}
 
 main {
   flex-grow: 1;
@@ -1729,7 +1723,7 @@ summary::-webkit-details-marker {
 @media (max-width: 767px) {
   .intro__sub-title {
     font-family: "Roboto";
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     font-style: normal;
     line-height: 18px;
@@ -1917,7 +1911,7 @@ summary::-webkit-details-marker {
 @media (max-width: 767px) {
   .layout__sub-title {
     font-family: "Roboto";
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     font-style: normal;
     line-height: 18px;
@@ -2408,8 +2402,10 @@ summary::-webkit-details-marker {
     line-height: 20px;
   }
 }
-.route__step-title:before {
-  content: counter(lvl1) ". ";
+@media (max-width: 991px) {
+  .route__step-title:before {
+    content: counter(lvl1) ". ";
+  }
 }
 .slider {
   position: relative;
