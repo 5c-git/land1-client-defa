@@ -1,8 +1,9 @@
 mixin review-card(props)
   div.review-card
     div.review-card__header
-      figure.review-card__avatar
-        img(src=props.src alt="")
+      if props.src
+        figure.review-card__avatar
+          img(src=props.src alt="")
       div.review-card__info
         span.review-card__name=props.name
         div.review-card__stars
