@@ -18,7 +18,7 @@ const getCookie = (name) => {
   return matches ? decodeURIComponent(matches[1]) : void 0;
 };
 const showMessage = () => {
-  summonPopUp({
+  (0,_popUp_popUp__WEBPACK_IMPORTED_MODULE_0__.summonPopUp)({
     template: "#cookie",
     blockScroll: false,
     overlay: {
@@ -33,6 +33,7 @@ const showMessage = () => {
   if (closeButton) {
     closeButton.addEventListener("click", () => {
       setCookie("agreeCookie", true);
+      (0,_popUp_popUp__WEBPACK_IMPORTED_MODULE_0__.removePopUp)("#cookie");
     });
   }
 };
@@ -42,6 +43,7 @@ const cookie = () => {
     showMessage();
   }
 };
+cookie();
 
 
 /***/ }),

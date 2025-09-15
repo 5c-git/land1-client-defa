@@ -187,4 +187,7 @@ const removePopUp = (arg) => {
   if (!document.querySelector('.popUp__overlay')) getPaddingFromBody();
 };
 
-export { summonPopUp, removePopUp };
+export {
+  summonPopUp,
+  removePopUp,
+};

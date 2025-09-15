@@ -1,6 +1,7 @@
 import './cookie.scss';
 import {
   summonPopUp,
+  removePopUp,
 } from '../popUp/popUp';
 
 const setCookie = (name, value) => {
@@ -31,6 +32,7 @@ const showMessage = () => {
   if (closeButton) {
     closeButton.addEventListener('click', () => {
       setCookie('agreeCookie', true);
+      removePopUp('#cookie');
     });
   }
 };
@@ -42,4 +44,4 @@ const cookie = () => {
   }
 };
 
-// cookie();
+cookie();
