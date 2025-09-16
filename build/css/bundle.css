@@ -382,6 +382,7 @@ summary::-webkit-details-marker {
   height: 1px;
   background: transparent;
   vertical-align: bottom;
+  pointer-events: none;
 }
 .alert:not(.alert-danger):not(.alert-warning):not(.alert-success):not(.alert-hide):not(.alert-show) .alert__close span:before {
   position: absolute;

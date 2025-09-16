@@ -51,6 +51,32 @@ html(lang="ru")
     template#cookie
       include ../components/cookie/cookie
 
+    div
+      template#alert--error
+        +alert({
+          error: true,
+        })
+
+      template#alert--request
+        +alert({
+          request: true,
+        })
+
+      template#alert--blue
+        +alert({
+          blue: true,
+        })
+
+      template#alert--red
+        +alert({
+          red: true,
+        })
+
+      template#alert--star
+        +alert({
+          star: true,
+        })
+
     //- jQuery скрипты
     script(src='libsJQ/jquery.min.js')
     block meta

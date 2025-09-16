@@ -102,6 +102,7 @@
           height: 1px;
           background: transparent;
           vertical-align: bottom;
+          pointer-events: none;
 
           &:before {
             position: absolute;
